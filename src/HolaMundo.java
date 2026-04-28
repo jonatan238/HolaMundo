@@ -1,5 +1,10 @@
 
-abstract class Persona {
+interface PersonaInterface {
+    void mostrarRol();
+    void mostrarDatos();
+}
+
+abstract class Persona implements PersonaInterface {
     protected String nombre;
     protected int edad;
     
@@ -9,10 +14,10 @@ abstract class Persona {
     }
     
     // Método abstracto - polimorfismo
-    abstract void mostrarRol();
+    public abstract void mostrarRol();
     
     // Método común
-    void mostrarDatos() {
+    public void mostrarDatos() {
         System.out.println("Nombre: " + nombre + ", Edad: " + edad);
     }
 }
@@ -27,7 +32,7 @@ class Estudiante extends Persona {
     }
     
     @Override
-    void mostrarRol() {
+    public void mostrarRol() {
         System.out.println("Soy Estudiante con promedio: " + promedio);
     }
 }
@@ -42,7 +47,7 @@ class Profesor extends Persona {
     }
     
     @Override
-    void mostrarRol() {
+    public void mostrarRol() {
         System.out.println("Soy Profesor de " + materia);
     }
 }
@@ -57,7 +62,7 @@ class Ingeniero extends Persona {
     }
     
     @Override
-    void mostrarRol() {
+    public void mostrarRol() {
         System.out.println("Soy Ingeniero en " + especialidad);
     }
 }
